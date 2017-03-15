@@ -19,8 +19,13 @@ class App extends Component {
 
   mouseMove = (event) => {
 		/*const nc = Math.min(255, (255 * event.clientY / event.clientX))&0xff;*/
+    let x = event.clientX;
+    let y = event.clientY;
+
+    var result = "Mouse moved: x: " + x + ", y: " + y;
+
 		this.setState({
-			/*bgColor: nc,*/
+			tf2: result,
 		});
 	}
 
