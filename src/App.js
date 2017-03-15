@@ -18,7 +18,6 @@ class App extends Component {
   }
 
   mouseMove = (event) => {
-		/*const nc = Math.min(255, (255 * event.clientY / event.clientX))&0xff;*/
     let x = event.clientX;
     let y = event.clientY;
 
@@ -29,20 +28,30 @@ class App extends Component {
 		});
 	}
 
+  mouseDown = (event) =>{
+
+    var result = "Mouse was clicked: "+event.target.id;
+
+
+    this.setState({
+      tf1: result,
+    });
+  }
+
 
 
   render() {
     return (
       <MuiThemeProvider>
         <Paper style={{width: 400, margin: 20, padding: 20}} onMouseMove={this.mouseMove}>
-          <div>
-            <TextField value={this.state.tf1} id="tf1"/>
+          <div onMouseDown={this.mouseDown}>
+            <TextField disabled={true} value={this.state.tf1} id="button1"/>
           </div>
-          <div>
-            <TextField value={this.state.tf2} id="tf2"/>
+          <div onMouseDown={this.mouseDown}>
+            <TextField disabled={true} value={this.state.tf2} id="button2"/>
           </div>
-          <div>
-            <TextField value={this.state.tf3} id="tf3"/>
+          <div onMouseDown={this.mouseDown}>
+            <TextField disabled={true} value={this.state.tf3} id="button3"/>
           </div>
         </Paper>
       </MuiThemeProvider>
