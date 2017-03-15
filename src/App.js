@@ -11,15 +11,14 @@ class App extends Component {
   constructor(){
     super();
     this.state={
-      tf1: "",
-      tf2: "",
-      tf3: "",
+      tf1: "Mouse was clicked: ",
+      tf2: "Mouse moved: ",
+      tf3: "Mouse wheel event: ",
     }
   }
 
   mouseMove = (event) => {
-		// somewhat random way to come up with a number between 0..255 to be used for a color
-		const nc = Math.min(255, (255 * event.clientY / event.clientX))&0xff;
+		/*const nc = Math.min(255, (255 * event.clientY / event.clientX))&0xff;*/
 		this.setState({
 			/*bgColor: nc,*/
 		});
@@ -30,7 +29,7 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <Paper style={{width: 600, margin: 20, padding: 20}} onMouseMove={this.mouseMove}>
+        <Paper style={{width: 400, margin: 20, padding: 20}} onMouseMove={this.mouseMove}>
           <div>
             <TextField value={this.state.tf1} id="tf1"/>
           </div>
